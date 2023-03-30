@@ -9,17 +9,17 @@ class UserInitial extends UserState {
   List<Object> get props => [];
 }
 
-class UserLoadedState extends UserState{
+class UserLoadedState extends UserState {
   List<UserModel> data;
 
- UserLoadedState({required this.data});
+  UserLoadedState({required this.data});
 
   @override
   // TODO: implement props
   List<Object?> get props => [data];
 }
 
-class UserErrorState extends UserState{
+class UserErrorState extends UserState {
   String? er_msg;
   UserErrorState({this.er_msg});
   @override

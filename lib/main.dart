@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:reguserapp/USERS/RESPO/user_respo.dart';
 
-import 'USERS/user_list_view.dart';
+import 'USERS/VIEW/user_list_view.dart';
 
 void main() {
   runApp(const MyApp());

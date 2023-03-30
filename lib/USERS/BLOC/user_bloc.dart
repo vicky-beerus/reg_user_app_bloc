@@ -13,53 +13,44 @@ class UserBloc extends Bloc<UserEvent, UserState> {
   final UserRespo userRespo;
 
   UserBloc({required this.userRespo}) : super(UserInitial()) {
-on(_onFetchUser);
-on(_onScrollFetch);
-
-
+    on(_onFetchUser);
+// on(_onScrollFetch);
   }
 
+  _onFetchUser(GetUserEvent event, Emitter<UserState> emit) async {
+    // emit(UserInitial());
 
-  _onFetchUser(GetUserEvent event, Emitter<UserState> emit)async{
-    emit(UserInitial());
-
-    if(state is UserInitial){
-      try{
-
-final userData =  await userRespo.fecthData(page: event.page);
-print("from bloc");
-print(userData);
-emit(UserLoadedState(data: userData));
-await userRespo.scrollCaller();
-
-
-      }catch(e){
-        emit(UserErrorState(er_msg: e.toString()));
-      }
+    // if (state is UserInitial) {
+    try {
+      final userData = await userRespo.fecthData();
+      print("from bloc");
+      print(userData);
+      emit(UserLoadedState(data: userData));
+      // await userRespo.scrollCaller();
+    } catch (e) {
+      emit(UserErrorState(er_msg: e.toString()));
     }
-
-
-
+    // }
   }
-  _onScrollFetch(ScrollGetEvent event, Emitter<UserState> emit)async{
-    emit(UserInitial());
-
-    if(state is UserLoadedState){
-      try{
-
-final userData =  await userRespo.scrollCaller();
-print("from bloc");
-print(userData);
-emit(UserLoadedState(data: userData));
-
-
-
-      }catch(e){
-        emit(UserErrorState(er_msg: e.toString()));
-      }
-    }
-
-
-
-  }
+//   _onScrollFetch(ScrollGetEvent event, Emitter<UserState> emit)async{
+//     emit(UserInitial());
+//
+//     if(state is UserLoadedState){
+//       try{
+//
+// final userData =  await userRespo.scrollCaller();
+// print("from bloc");
+// print(userData);
+// emit(UserLoadedState(data: userData));
+//
+//
+//
+//       }catch(e){
+//         emit(UserErrorState(er_msg: e.toString()));
+//       }
+//     }
+//
+//
+//
+//   }
 }
