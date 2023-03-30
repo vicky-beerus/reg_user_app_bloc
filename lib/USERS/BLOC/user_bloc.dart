@@ -14,7 +14,7 @@ class UserBloc extends Bloc<UserEvent, UserState> {
 
   UserBloc({required this.userRespo}) : super(UserInitial()) {
     on(_onFetchUser);
-// on(_onScrollFetch);
+
   }
 
   _onFetchUser(GetUserEvent event, Emitter<UserState> emit) async {
@@ -32,25 +32,5 @@ class UserBloc extends Bloc<UserEvent, UserState> {
     }
     // }
   }
-//   _onScrollFetch(ScrollGetEvent event, Emitter<UserState> emit)async{
-//     emit(UserInitial());
-//
-//     if(state is UserLoadedState){
-//       try{
-//
-// final userData =  await userRespo.scrollCaller();
-// print("from bloc");
-// print(userData);
-// emit(UserLoadedState(data: userData));
-//
-//
-//
-//       }catch(e){
-//         emit(UserErrorState(er_msg: e.toString()));
-//       }
-//     }
-//
-//
-//
-//   }
+
 }

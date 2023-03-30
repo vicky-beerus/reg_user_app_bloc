@@ -83,7 +83,6 @@ class _UserRegListsState extends State<UserRegLists> {
               Expanded(
                 child: ListView.builder(
                   controller: scrollController,
-// controller: RepositoryProvider.of<UserRespo>(context).scrollController,
                   itemCount:
                       RepositoryProvider.of<UserRespo>(context, listen: true)
                                   .isLoadingMore ==

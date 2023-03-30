@@ -13,24 +13,12 @@ class UserRespo {
 
   List<UserModel> userList = [];
 
-  // scrollCaller() async {
-  //   scrollController.addListener(() {
-  //     if (scrollController.position.pixels ==
-  //         scrollController.position.maxScrollExtent) {
-  //       print("its ture");
-  //       fecthData(page: 2);
-  //     } else {
-  //       print("its false");
-  //     }
-  //   });
-  // }
-
   fecthData({page}) async {
     List<UserModel> tempuserList = [];
     isLoadingMore = await true;
 
     var p = await pages++;
-    // print("page : ${page++}");
+
     var url = Uri.parse("https://reqres.in/api/users?page=${p}");
     print(url);
     print(isLoadingMore);
@@ -48,9 +36,6 @@ class UserRespo {
       isLoadingMore = await false;
       print(isLoadingMore);
       return userList;
-      // return datas
-      //     .map((e) => UserModel.fromJson(e as Map<String, dynamic>))
-      //     .toList() as List<UserModel>;
     } catch (e) {
       print("error in service $e");
     }

@@ -5,8 +5,7 @@ abstract class UserEvent extends Equatable {
 }
 
 class GetUserEvent extends UserEvent {
-  // final int page;
-  // GetUserEvent({required this.page});
+
 
   @override
   // TODO: implement props
@@ -14,8 +13,7 @@ class GetUserEvent extends UserEvent {
 }
 
 class ScrollGetEvent extends UserEvent {
-  // final int page;
-  // ScrollGetEvent({required this.page});
+
 
   @override
   List<Object?> get props => [];
